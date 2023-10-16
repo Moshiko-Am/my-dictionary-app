@@ -1,0 +1,77 @@
+.meaning-component {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	&__meaning-header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	&__part-of-speech {
+		width: 150px;
+		font-style: italic;
+	}
+
+	&__header-separator {
+		flex: 1;
+		height: 1px;
+		background-color: var(--light-background-muted);
+	}
+
+	&__definitions {
+		&-header {
+			color: var(--dark-text-muted);
+			font-weight: 400;
+		}
+
+		&-container {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+		}
+
+		&-list {
+			padding-inline: 2rem;
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&__definition {
+		&-item {
+			display: flex;
+			gap: 1rem;
+
+			&-text {
+				flex: 1;
+			}
+		}
+
+		&-bullet {
+			border-radius: 50%;
+			background-color: var(--general-accent);
+			width: 5px;
+			height: 5px;
+			transform: translateY(100%);
+		}
+	}
+
+	&__synonyms {
+		&-container {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		&-header {
+			color: var(--dark-text-muted);
+			font-weight: 400;
+		}
+	}
+
+	&__synonym-item {
+		color: var(--general-accent);
+	}
+}

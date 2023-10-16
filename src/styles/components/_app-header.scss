@@ -1,0 +1,38 @@
+.app-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&__logo-container {
+		width: 32px;
+	}
+
+	&__actions-container {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	&__dark-mode-container {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+
+		&::before {
+			content: '';
+			height: 30px;
+			width: 1px;
+			margin-inline-end: 1rem;
+		}
+	}
+
+	&__select {
+		&,
+		&:focus-visible {
+			border: none;
+			outline: none;
+			background: inherit;
+			color: inherit;
+		}
+	}
+}

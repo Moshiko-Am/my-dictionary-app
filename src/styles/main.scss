@@ -1,0 +1,69 @@
+// General Imports:
+@import './reset';
+@import './typography';
+@import './colors';
+
+// - Components:
+@import './components/spinner';
+@import './components/app-header';
+@import './components/app-search-bar';
+@import './components/results-component';
+@import './components/meaning-component';
+@import './components/input-form';
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+html,
+html.dark {
+	color: var(--dark-text-primary);
+	background-color: var(--dark-background-primary);
+}
+
+html.light {
+	color: var(--light-text-primary);
+	background-color: var(--light-background-primary);
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+#root {
+	max-width: 1440px;
+	height: 100%;
+	margin: auto;
+}
+
+.content-wrapper {
+	max-width: 770px;
+	height: 100%;
+	margin: auto;
+	padding-block: 3rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	@media (max-width: 830px) {
+		padding-inline: 2rem;
+	}
+
+	@media (max-width: 600px) {
+		padding-inline: 1rem;
+	}
+
+	@media (max-width: 400px) {
+		padding-inline: 0;
+	}
+
+	&__content {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+}

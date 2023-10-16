@@ -1,16 +1,19 @@
 import React from 'react';
-import Select, { ActionMeta, GroupBase, OptionsOrGroups, StylesConfig } from 'react-select';
+import Select, { GroupBase, OptionsOrGroups, StylesConfig } from 'react-select';
 import { useAppContext } from '../../context/AppContext.tsx';
 
 interface IReactSelect {
 	options: OptionsOrGroups<unknown, GroupBase<unknown>> | undefined;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	value: any;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	onChange: ((newValue: any) => void) | undefined;
 }
 
 const ReactSelect: React.FC<IReactSelect> = ({ options, value, onChange }) => {
 	const { theme } = useAppContext();
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const customStyles: StylesConfig<any, false, GroupBase<unknown>> | undefined = {
 		container: (provided) => ({
 			...provided,
@@ -18,7 +21,6 @@ const ReactSelect: React.FC<IReactSelect> = ({ options, value, onChange }) => {
 			borderRadius: 16,
 			outline: 'none',
 			border: 'none',
-
 		}),
 		control: (provided) => ({
 			...provided,
@@ -28,7 +30,7 @@ const ReactSelect: React.FC<IReactSelect> = ({ options, value, onChange }) => {
 			':hover': {
 				border: 'none',
 				cursor: 'pointer',
-			}
+			},
 		}),
 		valueContainer: (provided) => ({
 			...provided,
@@ -36,7 +38,7 @@ const ReactSelect: React.FC<IReactSelect> = ({ options, value, onChange }) => {
 			border: 'none',
 			fontWeight: 700,
 			backgroundColor: 'transparent',
-			color: theme === 'dark' ? 'var(--dark-text-primary)': 'var(--light-text-primary)',
+			color: theme === 'dark' ? 'var(--dark-text-primary)' : 'var(--light-text-primary)',
 		}),
 		menu: (provided) => ({
 			...provided,
@@ -47,7 +49,7 @@ const ReactSelect: React.FC<IReactSelect> = ({ options, value, onChange }) => {
 		}),
 		placeholder: (provided) => ({
 			...provided,
-			color: theme === 'dark' ? 'var(--dark-text-primary)': 'var(--light-text-primary)',
+			color: theme === 'dark' ? 'var(--dark-text-primary)' : 'var(--light-text-primary)',
 		}),
 		indicatorSeparator: (provided) => ({
 			...provided,
@@ -61,14 +63,14 @@ const ReactSelect: React.FC<IReactSelect> = ({ options, value, onChange }) => {
 			':hover': {
 				color: 'var(--general-accent)',
 				cursor: 'pointer',
-			}
+			},
 		}),
 		dropdownIndicator: (provided) => ({
 			...provided,
 			color: 'var(--general-accent)',
 			':hover': {
 				color: 'var(--general-accent)',
-			}
+			},
 		}),
 	};
 

@@ -17,7 +17,7 @@ const ResultsComponent: React.FC<IResultsComponent> = () => {
 
 	const handlePlay = () => {
 		if (audioRef.current) {
-			audioRef.current.play();
+			audioRef.current.play().then();
 		}
 	};
 
@@ -62,9 +62,9 @@ const ResultsComponent: React.FC<IResultsComponent> = () => {
 						</div>
 						<div className={generateBEMClassName({ block: BEMBlock, element: 'audio-container' })}>
 							{result?.phonetics
-								?.filter((phonetic) => phonetic?.audio)
+								?.filter((phonetic: { audio: never }) => phonetic?.audio)
 								?.slice(0, 1)
-								?.map((phonetic, index) => (
+								?.map((phonetic: { audio: never }, index: number) => (
 									<React.Fragment key={`phonetic-${index}`}>
 										<button
 											onClick={handlePlay}
@@ -73,7 +73,7 @@ const ResultsComponent: React.FC<IResultsComponent> = () => {
 												element: 'audio-button',
 											})}
 										>
-											<img src={playIcon} />
+											<img src={playIcon} alt={'Play Icon'} />
 										</button>
 										<audio ref={audioRef} src={phonetic?.audio} />
 									</React.Fragment>
@@ -81,13 +81,25 @@ const ResultsComponent: React.FC<IResultsComponent> = () => {
 						</div>
 					</div>
 					<div className={generateBEMClassName({ block: BEMBlock, element: 'result-meanings-wrapper' })}>
-						{result?.meanings?.map((meaning, index) => (
-							<MeaningComponent key={`meaning-${index}`} meaning={meaning} />
-						))}
+						{result?.meanings?.map(
+							(
+								meaning: {
+									antonyms: string[];
+									definitions: {
+										antonyms: string[];
+										definition: string;
+										synonyms: string[];
+									}[];
+									partOfSpeech: string;
+									synonyms: string[];
+								},
+								index: number
+							) => <MeaningComponent key={`meaning-${index}`} meaning={meaning} />
+						)}
 					</div>
 					{result?.sourceUrls?.length > 0 && (
 						<div className={generateBEMClassName({ block: BEMBlock, element: 'result-urls-container' })}>
-							{result?.sourceUrls?.map((url, index) => (
+							{result?.sourceUrls?.map((url: string, index: number) => (
 								<div
 									className={generateBEMClassName({ block: BEMBlock, element: 'result-url-item' })}
 									key={`url-${index}`}

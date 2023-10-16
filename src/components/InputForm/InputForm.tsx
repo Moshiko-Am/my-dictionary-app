@@ -21,6 +21,7 @@ const InputForm: React.FC<IInputForm> = ({ bBlock }) => {
 			setQuery(values.query);
 		},
 		validate: (values) => {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			const errors: any = {};
 			if (!values.query) {
 				errors['query'] = 'Whoops, can’t be empty...';
@@ -53,6 +54,8 @@ const InputForm: React.FC<IInputForm> = ({ bBlock }) => {
 						src={searchIcon}
 						alt={'Search Icon'}
 						className={generateBEMClassName({ block: BEMBlock, element: 'search-icon' })}
+						// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+						// @ts-ignore
 						onClick={formik.handleSubmit}
 					/>
 				</div>

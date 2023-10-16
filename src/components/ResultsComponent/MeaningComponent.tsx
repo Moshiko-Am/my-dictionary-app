@@ -1,7 +1,7 @@
 import React from 'react';
 import { generateBEMClassName } from 'bem-classnames-generator/dist';
 
-interface IMeaningComponent {
+export interface IMeaningComponent {
 	meaning: {
 		antonyms: string[];
 		definitions: {
